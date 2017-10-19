@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: firstDataSource, remote
+server:
+  baseUrl: http://localhost:3000/
+  imageUrl: images/
+---
+spring:
+  profiles: local
+server:
+  baseUrl: http://localhost:1000/
+---
+spring:
+  profiles: remote
+server:
+  baseUrl: https://s3-ap-southeast-1.amazonaws.com/se331/
+  imageUrl: pics/
