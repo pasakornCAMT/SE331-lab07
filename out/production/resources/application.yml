@@ -4,6 +4,7 @@ spring:
 server:
   baseUrl: http://localhost:3000/
   imageUrl: images/
+  imageServerDir: C:/Works/Component-Based Software Dev/Final/Lab/images/lab07/
 ---
 spring:
   profiles: local
