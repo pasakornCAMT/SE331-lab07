@@ -34,6 +34,17 @@ public class StudentDaoImpl implements StudentDao {
     public Student findById(long id) {
         return students.stream().filter(s -> s.getId() == id).findFirst().orElse(null);
     }
+
+    @Override
+    public Student addStudent(Student student) {
+        student.setImage(this.imageBaseUrl+student.getImage());
+        if(students.add(student)){
+            return student;
+        }else {
+            return null;
+        }
+    }
+
     @PostConstruct
     protected void init(){
         this.imageBaseUrl = this.baseUrl + this.imageUrl;

@@ -50,6 +50,10 @@ public class Student {
         return description;
     }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Student(){}
 
     public Student(long id, String studentId, String name, String surname, double gpa, String image, boolean feature, int penAmount, String description) {

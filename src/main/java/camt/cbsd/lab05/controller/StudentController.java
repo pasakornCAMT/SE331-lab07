@@ -63,7 +63,7 @@ public class StudentController {
 
     @PostMapping("/student")
     public ResponseEntity<?> uploadOnlyStudent(@RequestBody Student student){
-        System.out.println(student);
+        studentService.addStudent(student);
         return ResponseEntity.ok(student);
     }
 
@@ -89,14 +89,12 @@ public class StudentController {
         }
         try {
             byte[] bytes = file.getBytes();
-            //Path path = Paths.get(imageServerDir+file.getOriginalFilename());
             String oldFilename = file.getOriginalFilename();
             String ext = FilenameUtils.getExtension(oldFilename);
             String newFilename = Integer.toString(LocalTime.now().hashCode(),16)
                     +Integer.toString(oldFilename.hashCode(),16)+"."+ext;
             Path path = Paths.get(imageServerDir+newFilename);
             Files.write(path,bytes);
-            //return ResponseEntity.ok(file.getOriginalFilename());
             return ResponseEntity.ok(newFilename);
         }catch (IOException e ){
             e.printStackTrace();
